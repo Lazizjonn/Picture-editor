@@ -28,4 +28,9 @@
         android:name="uz.gita.piceditor.presentation.ui.pages.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/editingFragment"
+        android:name="uz.gita.piceditor.presentation.ui.screen.EditingFragment"
+        android:label="fragment_editing"
+        tools:layout="@layout/fragment_editing" />
 </navigation>
