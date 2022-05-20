@@ -8,14 +8,26 @@
     tools:context=".presentation.ui.screen.EditingFragment">
 
 
-    <ImageView
-        android:id="@+id/image"
+    <FrameLayout
+        android:id="@+id/frame"
         android:layout_width="match_parent"
         android:layout_height="500dp"
+        android:clickable="true"
+        android:focusable="true"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        >
+
+        <ImageView
+            android:id="@+id/image"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?selectableItemBackground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </FrameLayout>
 
     <HorizontalScrollView
         android:layout_width="match_parent"
@@ -33,6 +45,9 @@
             <ImageView
                 android:id="@+id/item1"
                 android:layout_width="100dp"
+                android:clickable="true"
+                android:foreground="?selectableItemBackground"
+                android:focusable="true"
                 android:layout_height="match_parent"
                 android:layout_margin="6dp"
                 android:src="@drawable/emoji_icon"
@@ -43,19 +58,22 @@
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:layout_margin="6dp"
+                android:foreground="?selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
                 android:src="@drawable/visa"
                 />
             <ImageView
                 android:id="@+id/item3"
                 android:layout_width="100dp"
+                android:clickable="true"
+                android:foreground="?selectableItemBackground"
+                android:focusable="true"
                 android:layout_height="match_parent"
                 android:layout_margin="6dp"
                 android:src="@drawable/round_rect"
                 />
-
-
         </LinearLayout>
-
     </HorizontalScrollView>
 
 

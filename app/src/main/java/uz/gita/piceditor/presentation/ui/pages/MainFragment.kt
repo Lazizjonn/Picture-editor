@@ -1,5 +1,6 @@
 package uz.gita.piceditor.presentation.ui.pages
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -37,7 +38,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == PICK_IMAGE) {
+        if (requestCode == PICK_IMAGE && resultCode == Activity.RESULT_OK) {
             //TODO: action
             val uri = bundleOf("image" to data?.data.toString())
             findNavController().navigate(R.id.editingFragment, uri)

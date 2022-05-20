@@ -1,6 +1,7 @@
 package uz.gita.piceditor.util
 
 import android.content.Context
+import android.content.res.Resources
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -9,6 +10,14 @@ import java.lang.StringBuilder
 import java.text.SimpleDateFormat
 import java.util.*
 
+/*
+
+ */
+val Int.dp: Int
+    get() = (this / Resources.getSystem().displayMetrics.density).toInt()
+
+val Int.px: Int
+    get() = (this * Resources.getSystem().displayMetrics.density).toInt()
 
 /**
  * Extension function to convert long to date string
