@@ -162,6 +162,7 @@ class EditingScreen : Fragment(R.layout.screen_editing) {
                     secondPointAfterMove = PointF(0F, 0F)
                 }
             }
+
             return@setOnTouchListener true
         }
         clearFrameFromOldViews()
