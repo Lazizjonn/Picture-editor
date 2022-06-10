@@ -8,30 +8,20 @@ import android.provider.Settings
 import com.nabinbhandari.android.permissions.PermissionHandler
 import com.nabinbhandari.android.permissions.Permissions
 
-fun Activity.checkPermissions(permission: Array<String>, granted: () -> Unit) {
-    Permissions.check(
-        this,
-        permission,
-        null, null,
-        permissionHandler(granted, { goToSettings() }, { goToSettings() }, { goToSettings() })
-    )
-}
+fun Activity.checkPermissions(permission: Array<String>, granted: () -> Unit) =
+    Permissions.check(this, permission, null, null, permissionHandler(granted, { goToSettings() }, { goToSettings() }, { goToSettings() }))
 
 const val REQUEST_APP_SETTINGS = 11001
+
 fun Activity.goToSettings() {
-    val intent =
-        Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:$packageName"))
+    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:$packageName"))
     intent.addCategory(Intent.CATEGORY_DEFAULT)
     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
     startActivityForResult(intent, REQUEST_APP_SETTINGS)
 }
 
-private fun permissionHandler(
-    granted: () -> Unit,
-    denied: () -> Unit,
-    justBlocked: () -> Unit,
-    blocked: () -> Unit
-) = object : PermissionHandler() {
+private fun permissionHandler(granted: () -> Unit, denied: () -> Unit, justBlocked: () -> Unit, blocked: () -> Unit) = object : PermissionHandler() {
+
     override fun onGranted() {
         granted()
     }
@@ -41,11 +31,7 @@ private fun permissionHandler(
         denied()
     }
 
-    override fun onJustBlocked(
-        context: Context?,
-        justBlockedList: ArrayList<String>?,
-        deniedPermissions: ArrayList<String>?
-    ) {
+    override fun onJustBlocked(context: Context?, justBlockedList: ArrayList<String>?, deniedPermissions: ArrayList<String>?) {
         super.onJustBlocked(context, justBlockedList, deniedPermissions)
         justBlocked()
     }

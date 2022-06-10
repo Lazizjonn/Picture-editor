@@ -4,5 +4,5 @@ import android.view.ViewGroup
 
 data class ViewData(
     val viewGroup: ViewGroup,
-    var isChosen: Boolean
+    var isSelect: Boolean
 )

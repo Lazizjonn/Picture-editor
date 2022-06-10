@@ -3,34 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/hostFragment">
+    app:startDestination="@id/splashScreen">
 
     <fragment
-        android:id="@+id/hostFragment"
-        android:name="uz.gita.piceditor.presentation.ui.screen.HostFragment"
-        android:label="fragment_host"
-        tools:layout="@layout/fragment_host" />
-    <fragment
-        android:id="@+id/favouriteFragment"
-        android:name="uz.gita.piceditor.presentation.ui.pages.FavouriteFragment"
-        android:label="fragment_favourite"
-        tools:layout="@layout/fragment_favourite" >
+        android:id="@+id/mainFragment"
+        android:name="uz.gita.piceditor.presentation.ui.screen.PickPhotoScreen"
+        android:label="fragment_main"
+        tools:layout="@layout/screen_pick_photo" >
         <action
-            android:id="@+id/action_favouriteFragment_to_mainFragment"
-            app:destination="@id/mainFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
+            android:id="@+id/action_mainFragment_to_editingFragment"
+            app:destination="@id/editingFragment"
+            app:enterAnim="@anim/slide_in_right" />
     </fragment>
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="uz.gita.piceditor.presentation.ui.pages.MainFragment"
-        android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
-    <fragment
         android:id="@+id/editingFragment"
-        android:name="uz.gita.piceditor.presentation.ui.screen.EditingFragment"
+        android:name="uz.gita.piceditor.presentation.ui.screen.EditingScreen"
         android:label="fragment_editing"
-        tools:layout="@layout/fragment_editing" />
+        tools:layout="@layout/screen_editing" />
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="uz.gita.piceditor.presentation.ui.screen.SplashScreen"
+        android:label="screen_splash"
+        tools:layout="@layout/screen_splash">
+        <action
+            android:id="@+id/action_splashScreen_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popUpTo="@id/splashScreen"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
